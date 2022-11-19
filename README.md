@@ -1,10 +1,8 @@
 # My Blog
 
-> start at 2022.11.19 23:45
+> Start at 2022.11.19 23:45
 
-**link:** [https://benn314.github.io/](https://benn314.github.io/)
-
-​    
+**Link:** [https://benn314.github.io/](https://benn314.github.io/)
 
 ### Common Instruction
 
