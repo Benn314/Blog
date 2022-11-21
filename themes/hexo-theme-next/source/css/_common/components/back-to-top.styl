@@ -3,7 +3,8 @@ if (hexo-config('back2top.enable')) {
     font-size: $b2t-font-size;
 
     span {
-      margin-right: 8px;
+      //margin-right: 8px; // 默认设置是这个 然后我给改成末尾两行
+      
       if (not hexo-config('back2top.scrollpercent')) {
         display: none;
       }
@@ -45,5 +46,8 @@ if (hexo-config('back2top.enable')) {
         bottom: $b2t-position-bottom-on;
       }
     }
+    padding-right: 5px;
+    // left: 30px; // 原先修改过后的位置 加了aplayer后 重新定义位置如下
+    left: 15%
   }
 }
