@@ -905,7 +905,7 @@ images: images
 
 # 鼠标点击动画
 # Fireworks
-fireworks: true
+fireworks: false
 #clicklove不用设置true false
 
 # 背景网格动画
