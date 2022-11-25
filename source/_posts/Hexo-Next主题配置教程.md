@@ -1,10 +1,13 @@
+---
+title: Hexo-Next主题配置教程
+---
 ## 个人博客
 
 网页预览：https://benn314.github.io/
 
-![image-20221122180842537](Hexo-Next主题配置教程.assets/image-20221122180842537.png)
+![image-20221122180842537.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2cw85j3j31z410f1dx.jpg)
 
-Hexo-Next 是一款我很喜欢的主题，布局简约，很适合用于搭配 live-2d 和 网格动画，打造属于自己的个人博客。博客目前部署于 `Github Pages` 
+Hexo-Next 是一款我很喜欢的主题，布局简约，很适合用于搭配 live-2d 和 网格动画，打造属于自己的个人博客。博客目前部署于 `Github Pages`
 
 相关Github仓库
 
@@ -13,9 +16,10 @@ Hexo-Next 是一款我很喜欢的主题，布局简约，很适合用于搭配 
 
 使用工具：Node.js、Vscode、Git
 
-​	
+<!-- more -->
 
-## 1 安装Hexo
+
+## 安装Hexo
 
 新建 `blog` 文件夹，进入此目录下
 
@@ -48,10 +52,10 @@ hexo s
 
 ### Common Instruction
 
-- `hexo clean` 清除 `public` 静态目录
-- `hexo s` 本地启动默认指定 `4000` 端口预览 (s 是 server 是缩写 也就是启动 hexo 服务)
-- `hexo g` 生成 `public` 静态目录
-- `hexo d` 部署
+- **hexo clean**：清除 `public` 静态目录
+- **hexo s**：本地启动默认指定 `4000` 端口预览 (s 是 server 是缩写 也就是启动 hexo 服务)
+- **hexo g**：生成 `public` 静态目录
+- **hexo d**： 部署
 
 在 Hexo 中有**两份**主要的配置文件，其名称都是 **_config.yml**
 
@@ -60,7 +64,21 @@ hexo s
 
 ​	
 
-## 2 配置menu
+## 主题(Gemini)
+
+**主题配置文件**
+
+```yml
+# Schemes
+# scheme: Muse
+# scheme: Mist
+# scheme: Pisces
+scheme: Gemini
+```
+
+​	
+
+## 配置menu
 
 **站点配置文件**
 
@@ -75,23 +93,32 @@ language: zh-CN
 timezone: "Asia/Shanghai"
 ```
 
-​	
-
-## 3 主题(Gemini)
-
 **主题配置文件**
 
 ```yml
-# Schemes
-# scheme: Muse
-# scheme: Mist
-# scheme: Pisces
-scheme: Gemini
+# Usage: `Key: /link/ || icon`
+# Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-sensitive.
+# Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
+# External url should start with http:// or https://
+menu:
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  # schedule: /schedule/ || fa fa-calendar
+  # sitemap: /sitemap.xml || fa fa-sitemap
+  #commonweal: /404/ || fa fa-heartbeat
+
+# Enable / Disable menu icons / item badges.
+menu_settings:
+  icons: true # 是否显示各个页面的图标
+  badges: false # 是否显示分类/标签/归档页的内容量
 ```
 
 ​	
 
-## 4 隐藏网页底部 powered By Hexo / 强力驱动
+## 隐藏网页底部 powered By Hexo / 强力驱动
 
 全局搜索并注释掉相应代码即可
 
@@ -107,7 +134,7 @@ scheme: Gemini
 
 ​	
 
-## 5 配置代码块高亮风格
+## 配置代码块高亮风格
 
 highlight 和 prismjs 是两种代码块风格，现在 highlight 是主流，且二者只能开启其一
 
@@ -154,7 +181,7 @@ codeblock:
 
 ​	
 
-## 6 文章添加阴影
+## 文章添加阴影
 
 **blog\themes\hexo-theme-next\source\css\_common\components\post\index.styl**
 
@@ -177,7 +204,7 @@ if (hexo-config('motion.transition.post_block')) {
 
 ​	
 
-## 7 显示当前浏览进度 
+## 显示当前浏览进度
 
 **主题配置文件**
 
@@ -192,13 +219,13 @@ scrollpercent: true
 
 ​	
 
-## 8 文章分享功能
+## 文章分享功能
 
 > 等有了域名以后才能在addthis中配置
 
 ​	
 
-## 9 Local Search本地搜索
+## Local Search本地搜索
 
 安装插件 `hexo-generator-searchdb`，执行以下命令:
 
@@ -226,7 +253,7 @@ enable: true
 
 ​	
 
-## 10 设置favicon.ico图标
+## 设置favicon.ico图标
 
 在 EasyIcon 中找一张（32 * 32）的 ico 图标，或者去别的网站下载或者制作，并将图标名称改为 favicon.ico，然后把图标放在 /themes/next/source/images 里，并且修改**主题配置文件**：
 
@@ -243,13 +270,13 @@ favicon:
 
 ​	
 
-## 11 修改文章底部的#号的标签
+## 修改文章底部的#号的标签
 
-新版本的next无需修改
+> 新版本的next无需修改
 
 ​	
 
-## 12 增加文章字数统计和阅读时长
+## 增加文章字数统计和阅读时长
 
 安装 `hexo-word-counter` 插件
 
@@ -273,9 +300,9 @@ symbols_count_time:
 
 ​	
 
-## 13 阅读全文
+## 阅读全文
 
-直接在文章中添加 <!-- more --> 来精确控制摘要内容，即控制 Read More（阅读全文） 的位置
+直接在文章中添加 `<!-- more -->` 来精确控制摘要内容，即控制 Read More（阅读全文） 的位置
 
 我们可以添加前言引用来对文章进行总结提炼 详情可点击阅读全文~
 
@@ -283,7 +310,7 @@ symbols_count_time:
 
 ​	
 
-## 14 添加作者头像
+## 添加作者头像
 
 进入**主题配置文件**，找到下面这行
 
@@ -306,7 +333,7 @@ avatar:
 
 ​	
 
-## 15 修改加载动画
+## 修改加载动画
 
 全局搜索 `pace` 然后设置 `pace: true` 开启
 
@@ -324,7 +351,7 @@ pace:
 
 ​	
 
-## 16 添加本站运行时间
+## 添加本站运行时间
 
 修改 **/blog/themes/next/layout/_partials/footer.njk** 文件，在末尾加入如下代码：
 
@@ -354,7 +381,7 @@ setInterval("createtime()",250);
 
 ​	
 
-## 17 鼠标点击动画
+## 鼠标点击动画
 
 ### 爱心特效
 
@@ -371,6 +398,8 @@ setInterval("createtime()",250);
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 ```
 
+![img](https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/5308475-78e64c0a80bb559e.gif)
+
 ### 烟花动画
 
 在 **themes/next/source/js/** 里面新建文件 `fireworks.js` 并添加代码：
@@ -380,7 +409,7 @@ setInterval("createtime()",250);
 
 ```
 
-打开 **themes/next/layout/_layout.njk**，在</body>里添加如下代码：
+打开 **themes/next/layout/_layout.njk**，在`</body>`里添加如下代码：
 
 ```njk
 {% if theme.fireworks %}
@@ -397,9 +426,11 @@ setInterval("createtime()",250);
 fireworks: true
 ```
 
+![img](https://blogdata-1258545379.cos.ap-shanghai.myqcloud.com/20190124/2017-12-18-084649.png)
+
 ​	
 
-## 18 背景动画
+## 背景动画
 
 ### 丝带背景动画
 
@@ -417,7 +448,7 @@ canvas_ribbon: # 丝带背景动画
 
 ### 网格背景动画
 
-打开 **next/layout/_layout.njk**，在<body></body>标签内添加代码
+打开 **next/layout/_layout.njk**，在`<body></body>`标签内添加代码
 
 ```njk
 {% if theme.canvas_nest %}
@@ -451,7 +482,7 @@ canvas_nest: false # 关闭动画
 
 ​	
 
-## 19 文章结束标志
+## 文章结束标志
 
 在路径 `\themes\next\layout\_macro` 中新建 `passage-end-tag.swig` 文件,并添加以下内容
 
@@ -475,7 +506,7 @@ canvas_nest: false # 关闭动画
 
 ​	
 
-## 20 配置live-2d模型
+## 配置live-2d模型
 
 安装 `hexo-helper-live2d` 插件
 
@@ -483,7 +514,7 @@ canvas_nest: false # 关闭动画
 npm install -save hexo-helper-live2d
 ```
 
-这个默认是 `shizuku` 不用配置，安装后直接在站点显示，但如果想要性能优化，配置模型相关信息的话，需要再安装`shizuku` 
+这个默认是 `shizuku` 不用配置，安装后直接在站点显示，但如果想要性能优化，配置模型相关信息的话，需要再安装 `shizuku`
 
 在**站点配置文件**中添加参数：（想要配置参数的话，需要重新下载专门的模型包）
 
@@ -576,11 +607,11 @@ npm install live2d-widget-model-shizuku --save
 
 `hexo-helper-live2d` 相当于 live2d 的脚手架，不能只下载 model，删除了 hexo-helper-live2d，live2d 模型无法生成
 
-![image-20221122220815641](Hexo-Next主题配置教程.assets/image-20221122220815641.png)
+![image-20221122220815641.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2djyb86j31o00zpwpd.jpg)
 
 ​	
 
-## 21 侧边栏社交链接
+## 侧边栏社交链接
 
 在**主题配置文件**中，开启 social 并选择想要的社交链接，取消注释
 
@@ -606,7 +637,6 @@ social:
 这里以 bilibili 和 CSDN 为例：
 
 ![img](https://img-blog.csdnimg.cn/8133cad7bf76462489969eab9730eeff.png)
-
 
 在 `\themes\next\source\css` 目录下的 `main.styl` 添加代码
 
@@ -662,7 +692,7 @@ social_icons:
 
 ​	
 
-## 22 添加fork me on github入口
+## 添加fork me on github入口
 
 首先到 [GitHub Corners](https://tholman.com/github-corners/) 或者 [GitHub Ribbons](https://github.blog/2008-12-19-github-ribbons/) 选择自己喜欢的图标，然后copy相应的代码粘贴到 `themes/next/layout/_layout.njk` 文件中，把代码中的href后面的值替换成你要跳转的地址，比如你的GitHub主页
 
@@ -670,17 +700,20 @@ social_icons:
   <a href="https://github.com/Benn314" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 ```
 
-![image-20221122231330945](Hexo-Next主题配置教程.assets/image-20221122231330945.png)
+![image-20221122231330945.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2eu8gapj31700pvk8c.jpg)
 
 ​	
 
-## 23 更换博客背景
+
+## 更换博客背景
 
 ### 更换主背景
 
+![](http://tva1.sinaimg.cn/large/008beOx9gy1h8ezm4aq29j31hc0u0k1d.jpg)
+
 把准备好的背景图放入 `themes\hexo-theme-next\source\images` 中
 
-新版本需要新建 `hexo/source/_data/styles.styl`，即在`hexo`目录的`source`文件夹下新建 `_data` 文件夹，文件夹中新建 `styles.styl`
+新版本需要新建 `hexo/source/_data/styles.styl`，即在 `hexo`目录的 `source`文件夹下新建 `_data` 文件夹，文件夹中新建 `styles.styl`
 
 > *注意：是新建在 hexo目录下 source文件夹里，而不是主题文件 next目录下的 source文件夹*
 
@@ -699,13 +732,9 @@ body {
 **配置项**
 
 - background-image:url 为图片路径，可以直接使用链接，也可以是图片路径（将自定义图片放入hexo\public\images路径下）
-
 - background-repeat：若果背景图片不能全屏，那么是否平铺显示，充满屏幕
-
 - background-attachment：背景是否随着网页上下滚动而滚动，fixed 为固定
-
 - background-size：图片展示大小，这里设置 100%，100% 的意义为：如果背景图片不能全屏，那么是否通过拉伸的方式将背景强制拉伸至全屏显示
-
 - background-size: cover // 填充
 
 打开**主题配置文件**，将 custom_file_path 的 sytle 注释打开
@@ -725,6 +754,8 @@ custom_file_path:
 ```
 
 ### 添加侧边栏背景
+
+![](https://images.unsplash.com/photo-1668871333606-ef8461d43922?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=600&q=60)
 
 对 themes\hexo-theme-next\source\css\_schemes\Pisces\_header.styl 中 site-brand-container的background进行修改
 
@@ -753,7 +784,7 @@ custom_file_path:
 
 ​	
 
-## 24 设置透明度
+## 设置透明度
 
 单独给每个区域设置opacity会出现很多问题，例如搜索框弹出会被覆盖图层导致无法进行本地搜索
 
@@ -801,11 +832,11 @@ body {
   }
 ```
 
-![image-20221123000813429](Hexo-Next主题配置教程.assets/image-20221123000813429.png)
+![image-20221123000813429.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2hgwdkej31o00zpx63.jpg)
 
 ​	
 
-## 25 边框圆角
+## 边框圆角
 
 在之前新建的 `_data` 目录下新建 `variables.styl`，类似新建 `styles.styl`。打开 `variables.styl`，添加如下：
 
@@ -825,7 +856,7 @@ variable: source/_data/variables.styl
 
 此时有一个问题就是 侧边栏-分类左下/右下 的圆角明显有一层阴影，下图是修正过的（图片只是为了指明位置）
 
-![image-20221122235657274](Hexo-Next主题配置教程.assets/image-20221122235657274.png)
+![image-20221122235657274.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2hbuxh8j30zu0qvtoe.jpg)
 
 原因是开启 back2top 的 sidebar 和 scrollpercent，back2top的阴影背景覆盖了圆角，把阴影背景改为透明便可解决，因为我们需要的只是scrollpercent
 
@@ -857,7 +888,7 @@ $border-radius           = initial;
 
 ### 修改侧边栏顶部圆角
 
-![image-20221122233353128](Hexo-Next主题配置教程.assets/image-20221122233353128.png)
+![image-20221122233353128.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2fth3qmj30ru0gn116.jpg)
 
 在 `blog\themes\hexo-theme-next\source\css\_common\outline\header\index.styl` 中对 `site-brand-container`（审查元素得知） 进行修改
 
@@ -874,7 +905,7 @@ $border-radius           = initial;
 
 ​	
 
-## 26 调整back2top透明度和位置
+## 调整back2top透明度和位置
 
 ### 调整透明度
 
@@ -914,7 +945,7 @@ $sidebar-toggle-size          = $sidebar-toggle-inner-size + $sidebar-toggle-pad
 
 这里从right修改成left无效的原因是值没有变 只是换了个变量名 当然没用呀 名字只是用来区分而已 你叫右边叫做tan90都没问题
 
-![image-20221123004447666](Hexo-Next主题配置教程.assets/image-20221123004447666.png)
+![image-20221123004447666.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2hfnu4cj31p50pde7q.jpg)
 
 然后在 themes\hexo-theme-next\source\css\_common\components\back-to-top.styl 末尾添加如下两行代码并注释 `margin-right: 8px;`
 
@@ -936,7 +967,7 @@ if (hexo-config('back2top.enable')) {
 
 ​	
 
-## 27 添加README.md文件
+## 添加README.md文件
 
 每个项目下一般都有一个 `README.md` 文件，但是使用 hexo 部署到仓库后，项目下是没有 `README.md` 文件的
 
@@ -950,7 +981,7 @@ skip_render: README.md
 
 ​	
 
-## 28 侧栏Celeste(旋转的小人)
+## 侧栏Celeste(旋转的小人)
 
 这里罗列两种位置摆放效果
 
@@ -990,7 +1021,7 @@ skip_render: README.md
 {% endmacro %}
 ```
 
-![image-20221123091752095](Hexo-Next主题配置教程.assets/image-20221123091752095.png)
+![image-20221123091752095.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2hm8uzyj31z410ghdt.jpg)
 
 放在 `blog\themes\hexo-theme-next\layout\_layout.njk`
 
@@ -1028,7 +1059,7 @@ skip_render: README.md
     </div>
 ```
 
-![image-20221123091952581](Hexo-Next主题配置教程.assets/image-20221123091952581.png)
+![image-20221123091952581.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2hlx0g8j31z410fhdt.jpg)
 
 我个人比较倾向放置到 _layout.njk，动画位置不会固定在浏览器窗口位置，而是会随着滚动而消失，阅读文章不因为动画而分心，才能更加专注
 
@@ -1036,7 +1067,7 @@ skip_render: README.md
 
 ​	
 
-## 29 懒加载开启(性能优化)
+## 懒加载开启(性能优化)
 
 进入 **主题配置文件**，添加：
 
@@ -1048,7 +1079,7 @@ lazyload: true # 懒加载开启
 
 ​	
 
-## 30 加入网易云音乐播放器
+## 加入网易云音乐播放器
 
 在网页搜索网易云音乐，选择音乐，并生成外链播放器，获取 `iframe` 标签
 
@@ -1057,7 +1088,7 @@ lazyload: true # 懒加载开启
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1433584979&auto=1&height=66"></iframe>
 ```
 
-建议把标签放到侧边栏，在`Blog/themes/next/layout/_macro/sidebar.njk` 或 `themes\hexo-theme-next\layout\_layout.njk` 文件下，选择位置粘贴进去，不同位置效果不同
+建议把标签放到侧边栏，在 `Blog/themes/next/layout/_macro/sidebar.njk` 或 `themes\hexo-theme-next\layout\_layout.njk` 文件下，选择位置粘贴进去，不同位置效果不同
 
 ![image-20221122180842537](Hexo-Next主题配置教程.assets/image-20221122180842537.png)
 
@@ -1065,7 +1096,7 @@ lazyload: true # 懒加载开启
 
 ​	
 
-## 31 添加Aplayer音乐播放器(进阶)
+## 添加Aplayer音乐播放器(进阶)
 
 ### 安装
 
@@ -1145,12 +1176,11 @@ const ap = new APlayer({
 - name：歌曲名称
 - artist：作者
 - url：连接（具体怎样操作看下面步骤）
-- cover：是图片连接，可以是本地图片，也可以是在线图片，本地放在`source/images`然后修改路径即可
+- cover：是图片连接，可以是本地图片，也可以是在线图片，本地放在 `source/images`然后修改路径即可
 
 ### url添加歌曲方法
 
 - 网易云网页播放一首歌曲
-
 - 将网址中的 id 进行复制：https://music.163.com/#/song?id=1411358329
 - 将下面代码中的 id 修改为你想添加歌曲的 id：http://music.163.com/song/media/outer/url?id=xxx.mp3 （网易云音乐在线播放歌曲模板）
 
@@ -1181,13 +1211,13 @@ left: 15%
 
 ​	
 
-## 32 删除了默认的landscope主题(性能优化)
+## 删除了默认的landscope主题(性能优化)
 
 > 压缩内存
 
 ​	
 
-## 33 评论系统
+## 评论系统
 
 根据网上对国内国外的评价系统对比，可知Valine是近几年大受欢迎的博客评价系统，但由于作者已经放弃了对 Valine 的维护，bug一堆尚未解决，所以最终敲定用基于Valine开发的新版本[Waline](https://waline.js.org/)作为本博客的评价系统
 
@@ -1195,7 +1225,6 @@ left: 15%
 
 1. [登录open in new window](https://console.leancloud.app/login) 或 [注册open in new window](https://console.leancloud.app/register) `LeanCloud 国际版` 并进入 [控制台open in new window](https://console.leancloud.app/apps)
 2. 点击左上角 [创建应用open in new window](https://console.leancloud.app/apps) 并起一个你喜欢的名字 (请选择免费的开发版):![创建应用](https://waline.js.org/assets/leancloud-1.f7a36b20.png)
-
 3. 进入应用，选择左下角的 `设置` > `应用 Key`。你可以看到你的 `APP ID`,`APP Key` 和 `Master Key`。请记录它们，以便后续使用。![ID 和 Key](https://waline.js.org/assets/leancloud-2.4cc69975.png)
 
 > 国内版需要完成备案接入
@@ -1216,9 +1245,8 @@ left: 15%
 1. 点击上方按钮，跳转至 Vercel 进行 Server 端部署。
 
    > 如果你未登录的话，Vercel 会让你注册或登录，请使用 GitHub 账户进行快捷登录。
-
+   >
 2. 输入一个你喜欢的 Vercel 项目名称并点击 `Create` 继续:![创建项目](https://waline.js.org/assets/vercel-1.4e9dd7aa.png)
-
 3. 此时 Vercel 会基于 Waline 模板帮助你新建并初始化仓库，仓库名为你之前输入的项目名。![deploy](https://waline.js.org/assets/vercel-3.0918fcee.png)
 
 一两分钟后，满屏的烟花会庆祝你部署成功。此时点击 `Go to Dashboard` 可以跳转到应用的控制台。![deploy](https://waline.js.org/assets/vercel-4.f7f4c12b.png)
@@ -1227,14 +1255,14 @@ left: 15%
 
 需要进入项目中的 Settings，而不是总设置里，总设置里没有 `Environment Variables` 选项配置
 
-![image-20221123100926589](Hexo-Next主题配置教程.assets/image-20221123100926589.png)
+![image-20221123100926589.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2h2rs3sj31o00zpqe1.jpg)
 
 > 如果你使用 LeanCloud 国内版，请额外配置 `LEAN_SERVER` 环境变量，值为你绑定好的域名。
 
 5. 环境变量配置完成之后点击顶部的 `Deployments` 点击顶部最新的一次部署右侧的 `Redeploy` 按钮进行重新部署。该步骤是为了让刚才设置的环境变量生效。![redeploy](https://waline.js.org/assets/vercel-6.c1af01b1.png)
 6. 此时会跳转到 `Overview` 界面开始部署，等待片刻后 `STATUS` 会变成 `Ready`。此时请点击 `Visit` ，即可跳转到部署好的网站地址，此地址即为你的服务端地址。![img](https://waline.js.org/assets/vercel-7.2478902b.png)
 
-###  绑定域名 (可选)
+### 绑定域名 (可选)
 
 1. 点击顶部的 `Settings` - `Domains` 进入域名配置页
 2. 输入需要绑定的域名并点击 `Add`![Add domain](https://waline.js.org/assets/vercel-8.49378bd3.png)
@@ -1320,7 +1348,9 @@ waline:
 
 注：`SMTP_USER` 和 `AUTHOR_EMAIL`都需要是完整的邮箱地址(XXX@XXX.com)
 
-如果你跟我一样使用QQ邮箱作为消息通知的话，使用的`SMTP_PASS` 填入的是授权码而不是邮箱登录密码，`SMTP_PASS` 要到你邮箱开启，填入授权码：![图9](https://img-blog.csdnimg.cn/7ddd289199724489a7221ba5a1d3a6bf.png)
+如果你跟我一样使用QQ邮箱作为消息通知的话，使用的 `SMTP_PASS` 填入的是授权码而不是邮箱登录密码，`SMTP_PASS` 要到你邮箱开启，填入授权码：![图9](https://img-blog.csdnimg.cn/7ddd289199724489a7221ba5a1d3a6bf.png)
+
+​	
 
 ### 添加评论表情包
 
@@ -1346,7 +1376,7 @@ waline:
 
 ---
 
-还有一个问题 就是大伙评论的东西 不翻墙刷新不出来 
+还有一个问题 就是大伙评论的东西 不翻墙刷新不出来
 
 > 原因 jsdeliver被墙 参考链接🔗: [jsdelivr被墙,hexo-next切换为自定义CDN](https://www.xygblog.com/p/8ebdba58/)
 
@@ -1354,11 +1384,11 @@ waline:
 
 leanClound作为数据库，同时可以用来作为图床存储文件，使其文件添加url地址
 
-![image-20221123101402718](Hexo-Next主题配置教程.assets/image-20221123101402718.png)
+![image-20221123101402718.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2h280wcj31nu0jbn28.jpg)
 
 ​	
 
-## 34 背景图上传CDN图床(性能优化)
+## 背景图上传CDN图床(性能优化)
 
 由于无缓存刷新（或者第一次加载页面）的时候 背景图片加载很慢（只有900多k）所以上传到CDN图床 https://cdnjson.com/
 
@@ -1366,11 +1396,11 @@ leanClound作为数据库，同时可以用来作为图床存储文件，使其�
 
 ​	
 
-## 35 解决因live-2d与busuanzi代码冲突导致阅读次数无法显示的问题
+## 解决因live-2d与busuanzi代码冲突导致阅读次数无法显示的问题
 
 > 吐槽：位置信息不懂更改（bullshit）
 
-![image-20221123101644167](Hexo-Next主题配置教程.assets/image-20221123101644167.png)
+![image-20221123101644167.png](https://tva1.sinaimg.cn/large/008beOx9gy1h8f2h34lmqj30po05vq5g.jpg)
 
 ### 通过修改 busuanzi 的解决
 
@@ -1431,7 +1461,6 @@ busuanzi_count:
 - [hexo博客next主题美化](http://47.108.95.237/2020/10/26/next%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%BE%8E%E5%8C%96/)
 - [NexT Highlight Theme Preview](https://theme-next.js.org/highlight/)
 - [Next 主题设置代码高亮](https://blog.wudinaonao.com/2020/04/27/Next-%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/)
-
 - [Hexo搭建博客NexT主题之AddThis分享文章的配置](https://jasonssun.github.io/2019/06/15/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2NexT%E4%B8%BB%E9%A2%98%E4%B9%8BAddThis%E5%88%86%E4%BA%AB%E6%96%87%E7%AB%A0%E7%9A%84%E9%85%8D%E7%BD%AE/)
 - [hexo笔记四：next主题添加作者头像](https://blog.csdn.net/Awt_FuDongLai/article/details/107424098)
 - [next主题如何添加动态背景canvas_nest](https://hdu-zky.github.io/2019/11/27/2019-11-27-add-background-canvas-nest/)
